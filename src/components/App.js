@@ -1,6 +1,7 @@
 import React from "react";
-import { of, fromEvent } from "rxjs";
-import { map, filter, flatMap } from "rxjs/operators";
+import { fromEvent } from "rxjs";
+import { map, filter } from "rxjs/operators";
+import Repositories from "./Repositories";
 import "./App.css";
 
 const tap = console.log.bind(null);
@@ -13,12 +14,6 @@ const tap = console.log.bind(null);
 // const click = () => b.subscribe(tap);
 
 const isChecked = event => event.currentTarget.checked;
-
-const req$ = of("https://api.github.com/users/bhongy/repos");
-req$
-  .pipe(flatMap(reqUrl => fetch(reqUrl)), flatMap(res => res.json()))
-  .subscribe(tap);
-
 class App extends React.Component {
   checkEvent$: null;
   state = { on: false };
@@ -38,17 +33,17 @@ class App extends React.Component {
         <header className="App-header">
           <h1 className="App-title">My Github Repositories</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        {/* <button onClick={click}>Run RxJS Example</button> */}
-        <input
-          type="checkbox"
-          ref={el => {
-            this.checkEvent$ = fromEvent(el, "change");
-          }}
-        />
-        <p>{this.state.on ? "✔ on" : "✘ off"}</p>
+        <div className="App-content">
+          <Repositories />
+          {/* <button onClick={click}>Run RxJS Example</button> */}
+          <input
+            type="checkbox"
+            ref={el => {
+              this.checkEvent$ = fromEvent(el, "change");
+            }}
+          />
+          <p>{this.state.on ? "✔ on" : "✘ off"}</p>
+        </div>
       </div>
     );
   }

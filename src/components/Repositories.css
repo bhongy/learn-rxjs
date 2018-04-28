@@ -1,0 +1,16 @@
+/* .Repositories {
+
+} */
+
+.Repository {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Repository-language-tag {
+  font-size: 0.75em;
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  border-radius: 0.25em;
+  background-color: #eee;
+}
