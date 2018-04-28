@@ -2,6 +2,7 @@ import React from "react";
 import { fromEvent } from "rxjs";
 import { map, filter } from "rxjs/operators";
 import Repositories from "./Repositories";
+import StopWatch from "./StopWatch";
 import "./App.css";
 
 const tap = console.log.bind(null);
@@ -35,6 +36,7 @@ class App extends React.Component {
         </header>
         <div className="App-content">
           <Repositories />
+          <StopWatch />
           {/* <button onClick={click}>Run RxJS Example</button> */}
           <input
             type="checkbox"
