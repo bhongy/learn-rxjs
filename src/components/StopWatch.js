@@ -1,16 +1,22 @@
 import React from "react";
 import { fromEvent, interval } from "rxjs";
-import { switchMap, takeUntil } from "rxjs/operators";
+import { switchMapTo, takeUntil, scan } from "rxjs/operators";
 
 class StopWatch extends React.Component {
   state = { time: 0 };
 
   componentDidMount() {
-    const start = fromEvent(this.startButton, "click");
-    const stop = fromEvent(this.stopButton, "click");
+    const startClick = fromEvent(this.startButton, "click");
+    const stopClick = fromEvent(this.stopButton, "click");
 
-    start
-      .pipe(switchMap(() => interval(100).pipe(takeUntil(stop))))
+    startClick
+      .pipe(
+        switchMapTo(interval(100).pipe(takeUntil(stopClick))),
+        scan(
+          time => time + 1,
+          this.state.time // <-- immutable at the time of declaration
+        )
+      )
       .subscribe(v => {
         this.setState({ time: v });
       });
