@@ -1,22 +1,28 @@
 {
-  "name": "learns-rxjs",
+  "name": "learn-rxjs",
   "version": "1.0.0",
-  "description": "Learns RxJS: http://reactivex.io/rxjs/",
-  "main": "index.js",
-  "repository": "git@github.com:bhongy/learns-rxjs.git",
+  "description": "Learn RxJS: https://rxjs-dev.firebaseapp.com/",
+  "repository": "git@github.com:bhongy/learn-rxjs.git",
   "author": "Thanik Bhongbhibhat <email@thanik.me>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "next"
+  },
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "rxjs": "^6.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/next": "^8.0.3",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "jest": "^24.5.0",
+    "next": "^8.0.3",
+    "ts-jest": "^24.0.0"
   }
 }
